@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Gemini Tutor</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;family=Lexend:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container-high": "#e6e8eb",
+                      "tertiary-container": "#a06900",
+                      "inverse-on-surface": "#eff1f4",
+                      "inverse-primary": "#a4c9ff",
+                      "on-primary-container": "#fdfcff",
+                      "surface-container-low": "#f2f4f7",
+                      "tertiary-fixed": "#ffddb4",
+                      "tertiary": "#7f5300",
+                      "on-background": "#191c1e",
+                      "surface-tint": "#0060ac",
+                      "outline": "#717783",
+                      "error": "#ba1a1a",
+                      "tertiary-fixed-dim": "#ffb953",
+                      "background": "#f7f9fc",
+                      "surface-container-highest": "#e0e3e6",
+                      "on-surface": "#191c1e",
+                      "on-tertiary-fixed": "#291800",
+                      "error-container": "#ffdad6",
+                      "on-secondary-fixed-variant": "#314867",
+                      "secondary-fixed-dim": "#b1c8ed",
+                      "surface-dim": "#d8dadd",
+                      "secondary": "#496080",
+                      "on-error": "#ffffff",
+                      "on-primary-fixed-variant": "#004883",
+                      "primary-fixed": "#d4e3ff",
+                      "primary-container": "#2976c7",
+                      "on-tertiary-fixed-variant": "#633f00",
+                      "surface-container": "#eceef1",
+                      "surface": "#f7f9fc",
+                      "inverse-surface": "#2d3133",
+                      "secondary-container": "#c1d9fe",
+                      "outline-variant": "#c1c7d3",
+                      "on-secondary-fixed": "#001c39",
+                      "on-primary-fixed": "#001c39",
+                      "on-tertiary-container": "#fffbff",
+                      "secondary-fixed": "#d4e3ff",
+                      "on-surface-variant": "#414751",
+                      "on-tertiary": "#ffffff",
+                      "surface-variant": "#e0e3e6",
+                      "surface-bright": "#f7f9fc",
+                      "on-secondary-container": "#485e7e",
+                      "on-secondary": "#ffffff",
+                      "on-primary": "#ffffff",
+                      "on-error-container": "#93000a",
+                      "primary-fixed-dim": "#a4c9ff",
+                      "primary": "#005da7",
+                      "surface-container-lowest": "#ffffff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {},
+              "fontFamily": {
+                      "headline": [
+                              "Manrope"
+                      ],
+                      "body": [
+                              "Lexend"
+                      ],
+                      "label": [
+                              "Lexend"
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body h-screen flex flex-col antialiased overflow-hidden">
+<!-- TopAppBar JSON Translation -->
+<header class="docked full-width top-0 sticky bg-white/85 dark:bg-slate-900/85 backdrop-blur-2xl shadow-sm shadow-slate-200/50 dark:shadow-none bg-slate-50 dark:bg-slate-950 transition-colors duration-300 z-50">
+<div class="flex justify-between items-center px-6 py-3 w-full max-w-screen-xl mx-auto">
+<div class="flex items-center gap-3">
+<div class="relative">
+<img alt="Gemini AI Tutor Portrait" class="w-10 h-10 rounded-full object-cover" data-alt="Abstract soft glowing orb representing AI intelligence in blue and white tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBk1D_oCrM6RE4rTGf5ehUJP4Zet0AqsxeUqfeEoXFAMONvwnTfxhl-8GIjzu0xk8AKh178C4l_dyxZs2ejnCQvVcD9frbrLUMq25mv_MBIYiDbGVRw1LT5efXViPqGGDdd5bwf1oZqjWcjEbwkCRv95ETTFh_wwCNk33e4n6I6QHPMINHO5-V9yh4jRy8_GWrMTT5lb0loXV8J6EpsPuDuzfFMXIcjsQr3trU0FmVTBuofLr6-QbtlioEqzDyqX_wNhOxJ-3yYQXJ"/>
+<div class="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-white rounded-full"></div>
+</div>
+<div class="flex flex-col">
+<h1 class="font-headline font-bold tracking-tight text-slate-900 dark:text-slate-100 text-lg">Gemini Tutor</h1>
+<span class="font-label text-[11px] font-medium tracking-wide text-slate-500">Online</span>
+</div>
+</div>
+<button class="text-blue-600 dark:text-blue-400 hover:bg-slate-100/50 dark:hover:bg-slate-800/50 transition-all active:scale-95 transition-transform p-2 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="delete_sweep">delete_sweep</span>
+</button>
+</div>
+</header>
+<!-- Chat Canvas -->
+<main class="flex-1 overflow-y-auto px-4 py-6 flex flex-col gap-6 relative">
+<!-- AI Message -->
+<div class="flex items-start gap-3 w-full max-w-3xl mx-auto">
+<img alt="AI Avatar" class="w-8 h-8 rounded-full object-cover shrink-0 mt-1" data-alt="Abstract soft glowing orb representing AI intelligence in blue and white tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9LmFD-_r0fMnzUyHSY6DZDmLHYa_U662QUhh4KII_x0LEKdP2d9C_vkDCzM7_wMxVY3MP3A1hYtyCYv4rr7qLKjZVpDBSFOSKaKlUQ1QPLd3nT-E0yeEV2R91s9v_uouYAMU2DVbKjkTM6AHiYnWHb6EWxEWI9TIxaC4PrHvv48alo8xEDhxEYlbWxIPm7GKyn41JwF_-_VsJFM2r23dRDO-ZqkAXMNx_qZ9KIvU9ZefB5_8ptprV1nNLzs_y9wIamcX-rzgMqzgw"/>
+<div class="bg-surface-container-lowest text-on-surface p-4 rounded-xl rounded-bl-sm max-w-[85%] font-body text-base">
+                Hello! I'm your AI Tutor. What would you like to learn today?
+            </div>
+</div>
+<!-- User Message -->
+<div class="flex items-start justify-end gap-3 w-full max-w-3xl mx-auto">
+<div class="bg-primary text-on-primary p-4 rounded-xl rounded-br-sm max-w-[85%] font-body text-base">
+                Can you explain how React hooks work?
+            </div>
+</div>
+<!-- AI Message with Markdown -->
+<div class="flex items-start gap-3 w-full max-w-3xl mx-auto">
+<img alt="AI Avatar" class="w-8 h-8 rounded-full object-cover shrink-0 mt-1" data-alt="Abstract soft glowing orb representing AI intelligence in blue and white tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDswvsJSdPZSWfz8tST16OhcReO3WPTzyjRUZjuGrMS82ligby-Oafb64jygI5Db9nhVD3fEIV2tpsommE_8-ah-sPpg7yXiPVAU-m9ctTO0dAfBnLdDnjWYpjArnV8_3wDgpwKHbuXnt7AEBRm_QOTmTnX5fwcVZ1ry1xgKLp-I7zdyaRHaRT9qanEzKQ7ishtIXuM6-spHxye8jk1Bo2JFo4ZfmX76aUtcnOu_g4pys3Tjpug5cJ2rY6bg6derYZb039PsXrlUDNE"/>
+<div class="bg-surface-container-lowest text-on-surface p-4 rounded-xl rounded-bl-sm max-w-[85%] font-body text-base flex flex-col gap-3">
+<p>Sure! Hooks are functions that let you 'hook into' React state and lifecycle features from function components.</p>
+<div class="bg-surface-container rounded-lg p-3 overflow-x-auto">
+<code class="text-sm font-mono text-on-surface-variant">
+<span class="text-primary-container">const</span> [count, setCount] = <span class="text-secondary">useState</span>(<span class="text-tertiary">0</span>);
+                    </code>
+</div>
+</div>
+</div>
+<!-- Thinking State -->
+<div class="flex items-center gap-3 w-full max-w-3xl mx-auto text-on-surface-variant font-label text-sm italic py-2">
+<span class="material-symbols-outlined text-sm animate-pulse" data-icon="more_horiz">more_horiz</span>
+             Gemini is thinking...
+        </div>
+</main>
+<!-- Sticky Bottom Area -->
+<div class="w-full bg-surface-container-low pb-24 md:pb-6 relative z-40 pt-2">
+<!-- Quick Actions Chips -->
+<div class="flex overflow-x-auto gap-2 px-4 pb-3 hide-scrollbar max-w-3xl mx-auto w-full">
+<button class="bg-surface-container-high text-on-surface font-label text-sm px-4 py-2 rounded-full whitespace-nowrap active:scale-95 transition-transform shrink-0">Explain simply</button>
+<button class="bg-surface-container-high text-on-surface font-label text-sm px-4 py-2 rounded-full whitespace-nowrap active:scale-95 transition-transform shrink-0">Give an example</button>
+<button class="bg-surface-container-high text-on-surface font-label text-sm px-4 py-2 rounded-full whitespace-nowrap active:scale-95 transition-transform shrink-0">Summarize</button>
+</div>
+<!-- Input Bar -->
+<div class="px-4 w-full max-w-3xl mx-auto">
+<div class="bg-surface-container-lowest/85 backdrop-blur-[24px] rounded-full p-2 flex items-center gap-2 border border-outline-variant/15">
+<button class="text-on-surface-variant p-2 rounded-full hover:bg-surface-container transition-colors shrink-0 flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</button>
+<input class="flex-1 bg-transparent border-none focus:ring-0 text-on-surface font-body text-base placeholder:text-on-surface-variant/60" placeholder="Type a message..." type="text"/>
+<button class="bg-gradient-to-br from-primary to-primary-container text-on-primary w-10 h-10 rounded-full flex items-center justify-center shrink-0 active:scale-95 transition-transform shadow-[0_4px_12px_rgba(0,93,167,0.2)]">
+<span class="material-symbols-outlined text-[20px]" data-icon="send">send</span>
+</button>
+</div>
+</div>
+</div>
+<!-- BottomNavBar JSON Translation -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center pt-2 pb-6 px-4 bg-white/90 dark:bg-slate-900/90 backdrop-blur-lg rounded-t-3xl border-t border-slate-100/10 tonal-layering-surface-container-low shadow-[0_-8px_30px_rgb(0,0,0,0.04)] md:hidden">
+<button class="flex flex-col items-center justify-center bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-200 rounded-2xl px-5 py-2 tap-highlight-transparent transition-all duration-200">
+<span class="material-symbols-outlined" data-icon="forum">forum</span>
+<span class="font-lexend text-[11px] font-medium tracking-wide uppercase mt-1">Tutor</span>
+</button>
+<button class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-5 py-2 hover:text-blue-500 dark:hover:text-blue-300 tap-highlight-transparent transition-all duration-200">
+<span class="material-symbols-outlined" data-icon="auto_stories">auto_stories</span>
+<span class="font-lexend text-[11px] font-medium tracking-wide uppercase mt-1">Library</span>
+</button>
+<button class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-5 py-2 hover:text-blue-500 dark:hover:text-blue-300 tap-highlight-transparent transition-all duration-200">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-lexend text-[11px] font-medium tracking-wide uppercase mt-1">Profile</span>
+</button>
+</nav>
+<style>
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</body></html>
