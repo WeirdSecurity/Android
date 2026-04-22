@@ -2,7 +2,6 @@
 
 Guru is a premium, AI-powered personal tutoring application built with **React Native** and **Expo**. It leverages cutting-edge Large Language Models via **OpenRouter** to provide personalized curriculum generation, interactive lessons, and real-time educational support.
 
-![Guru Logo](ModernAITutorApp/assets/images/icon.png)
 
 ## 🚀 Key Features
 
